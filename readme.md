@@ -35,6 +35,21 @@ You can access the calculator with two ways :
 - `Calculator` facade class
 - `calculator()` helper function
 
+
+Add model mutators :
+
+  For fields that you want to convert them and forward from `FloatNumber` to `DB decimal` types you should add :
+  ```php
+  
+     public function set[Yourattribute]Attribute($value){
+          $this->attribute['price'] = as_float_number($value);
+     }
+     
+     public function get[Yourattribute]Attribute($value){
+          return as_float_number($value);
+     }
+  ```
+
 ## Calculator features :
 
 ```php
