@@ -1,0 +1,41 @@
+{
+  "name": "enimiste/l5-math",
+  "description": "Laravel 5 Math calculation, number representation package",
+  "keywords": [
+    "math",
+    "laravel",
+    "financial",
+    "float",
+    "number",
+    "tva",
+    "price"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "El bachir NOUNI",
+      "email": "nouni.elbachir@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-bcmath": "*",
+    "enimiste/math": "v1.*",
+    "illuminate/support": "5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Enimiste\\L5Math\\": "src",
+      "Test\\Enimiste\\L5Math\\": "tests"
+    },
+    "files": [
+      "src/Helpers.php"
+    ]
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~4.0"
+  }
+}
