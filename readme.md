@@ -21,6 +21,88 @@ Check if a given is integer or not. The `is_int` of php those not check the inte
 *as_float_number*
 Convert a given value to an instance of `FloatNumber`. Default scale is 2
 
+## Usage :
+Add the service provider and the facade to the `config/app.php` file : 
+```php
+    Enimiste\L5Math\Providers\L5MathServiceProvider::class;
+``` 
+
+```php
+    'Calculator' => 'Enimiste\L5Math\Facades\CalculatorFacade::class;
+``` 
+
+You can access the calculator with two ways :
+- `Calculator` facade class
+- `calculator()` helper function
+
+## Calculator features :
+
+```php
+
+interface Calculator {
+
+	/**
+	 * Multiplication
+	 *
+	 * @param Number $l
+	 * @param Number $r
+	 *
+	 * @return Number
+	 */
+	public function mult( Number $l, Number $r );
+
+	/**
+	 * Calculate the TTC price from HT and TVA
+	 *
+	 * @param FloatNumber $ht
+	 * @param FloatNumber $tva between 0 and 1
+	 *
+	 * @return FloatNumber
+	 */
+	public function ttc( FloatNumber $ht, FloatNumber $tva );
+
+	/**
+	 * Add two Numbers
+	 *
+	 * @param Number $l
+	 * @param Number $r
+	 *
+	 * @return Number
+	 */
+	public function add( Number $l, Number $r );
+
+	/**
+	 * @param IntegerNumber $quantite
+	 * @param FloatNumber   $prixUnitaireHt
+	 * @param FloatNumber   $tva
+	 *
+	 * @return PriceResultDto
+	 */
+	public function price( IntegerNumber $quantite, FloatNumber $prixUnitaireHt, FloatNumber $tva );
+
+	/**
+	 * Build TVA as value betwenn 0 and 1 from a value from 0 to 100
+	 *
+	 * @param FloatNumber $tva
+	 *
+	 * @return FloatNumber
+	 */
+	public function tva( FloatNumber $tva );
+
+	/**
+	 * Sub two Numbers
+	 * $l - $r
+	 *
+	 * @param Number $l
+	 * @param Number $r
+	 *
+	 * @return Number
+	 */
+	public function sub( Number $l, Number $r );
+}
+
+```
+
 ## Example :
 Assume we have a `Product` and an `Ordre` entities that we have to manage in our application.
 
