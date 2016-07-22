@@ -26,7 +26,7 @@ if ( ! function_exists( 'as_float_number' ) ) {
 	 *
 	 * @param int                                            $scale
 	 *
-	 * @return bool
+	 * @return \Enimiste\Math\VO\FloatNumber
 	 */
 	function as_float_number( $value, $scale = 2 ) {
 		if ( $value instanceof \Enimiste\Math\VO\FloatNumber ) {
@@ -36,7 +36,28 @@ if ( ! function_exists( 'as_float_number' ) ) {
 				throw new \RuntimeException( 'Scale should be >= 0' );
 			}
 
+			if ( $value instanceof \Enimiste\Math\VO\IntegerNumber ) {
+				$value = $value->__toString();
+			}
+
 			return new \Enimiste\Math\VO\FloatNumber( $value, $scale );
+		}
+	}
+}
+
+if ( ! function_exists( 'as_integer_number' ) ) {
+	/**
+	 * @param string|int|float|\Enimiste\Math\VO\IntegerNumber $value
+	 *
+	 * @return \Enimiste\Math\VO\FloatNumber
+	 */
+	function as_integer_number( $value ) {
+		if ( $value instanceof \Enimiste\Math\VO\IntegerNumber ) {
+			return $value;
+		} elseif ( $value instanceof \Enimiste\Math\VO\FloatNumber ) {
+			return new \Enimiste\Math\VO\IntegerNumber( $value->__toString() );
+		} else {
+			return new \Enimiste\Math\VO\IntegerNumber( $value );
 		}
 	}
 }
