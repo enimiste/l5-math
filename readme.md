@@ -12,7 +12,8 @@ For decimal numbers you should use the `FloatNumber` class.
 Get the calculator instance : 
 ```php
  $calculator = calculator();
- $calculator->add();
+ $calculator->add(.. , ...);
+ ....
 ```
 
 *check_is_integer*
