@@ -43,7 +43,7 @@ Add model mutators :
   ```php
   
      public function set[Yourattribute]Attribute($value){
-          $this->attribute['price'] = as_float_number($value);
+          $this->attribute['price'] = as_float_number($value);//__toString() function of VONumber is used to passe data to db
      }
      
      public function get[Yourattribute]Attribute($value){
